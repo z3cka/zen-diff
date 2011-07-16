@@ -1,4 +1,6 @@
 <?php
+// $Id: region-sidebar.tpl.php,v 1.1 2010/10/05 23:53:50 spaceninja Exp $
+
 /**
  * @file
  * Default theme implementation to display a region.
@@ -26,6 +28,7 @@
  * @see zen_process()
  */
 ?>
-<div class="<?php print $classes; ?>"><div class="section">
+<hr />
+<aside class="<?php print $classes; ?>"><div class="section">
   <?php print $content; ?>
-</div></div><!-- /.section, /.region -->
+</div></aside> <!-- /.section, /.region -->

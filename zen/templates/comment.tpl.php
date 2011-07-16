@@ -1,4 +1,6 @@
 <?php
+// $Id: comment.tpl.php,v 1.1 2010/10/05 23:53:50 spaceninja Exp $
+
 /**
  * @file
  * Default theme implementation for comments.
@@ -52,31 +54,34 @@
  * @see zen_process()
  */
 ?>
-<div class="<?php print $classes; ?> clearfix">
-  <?php print $picture; ?>
+<article class="<?php print $classes; ?> clearfix">
+  <header>
 
-  <?php if ($title): ?>
-    <h3 class="title">
-      <?php print $title; ?>
-      <?php if ($new): ?>
-        <span class="new"><?php print $new; ?></span>
-      <?php endif; ?>
-    </h3>
-  <?php elseif ($new): ?>
-    <div class="new"><?php print $new; ?></div>
-  <?php endif; ?>
+    <?php print $picture; ?>
 
-  <?php if ($unpublished): ?>
-    <div class="unpublished"><?php print t('Unpublished'); ?></div>
-  <?php endif; ?>
+    <?php if ($title): ?>
+      <h3 class="title">
+        <?php print $title; ?>
+        <?php if ($new): ?>
+          <span class="new"><?php print $new; ?></span>
+        <?php endif; ?>
+      </h3>
+    <?php elseif ($new): ?>
+      <div class="new"><?php print $new; ?></div>
+    <?php endif; ?>
 
-  <div class="submitted">
-    <?php
-      print t('Submitted by !username on !datetime.',
-        array('!username' => $author, '!datetime' => $created));
-    ?>
-  </div>
+    <?php if ($unpublished): ?>
+      <div class="unpublished"><?php print t('Unpublished'); ?></div>
+    <?php endif; ?>
 
+    <p class="submitted">
+      <?php
+        print t('Submitted by !username on !datetime.',
+          array('!username' => $author, '!datetime' => $created));
+      ?>
+    </p>
+
+  </header>
   <div class="content">
     <?php print $content; ?>
     <?php if ($signature): ?>
@@ -86,5 +91,10 @@
     <?php endif; ?>
   </div>
 
-  <?php print $links; ?>
-</div><!-- /.comment -->
+  <?php if ($links): ?>
+    <footer>
+      <?php print $links; ?>
+    </footer>
+  <?php endif; ?>
+
+</article> <!-- /.comment -->

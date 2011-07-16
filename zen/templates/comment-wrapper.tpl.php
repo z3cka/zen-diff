@@ -1,4 +1,6 @@
 <?php
+// $Id: comment-wrapper.tpl.php,v 1.1 2010/10/05 23:53:50 spaceninja Exp $
+
 /**
  * @file
  * Default theme implementation to wrap comments.
@@ -36,10 +38,10 @@
  * @see template_preprocess_comment_wrapper()
  */
 ?>
-<div id="comments" class="<?php print $classes; ?>">
+<section id="comments" class="<?php print $classes; ?>">
   <?php if ($node->type != 'forum'): ?>
     <h2 class="title"><?php print t('Comments'); ?></h2>
   <?php endif; ?>
 
   <?php print $content; ?>
-</div>
+</section>
